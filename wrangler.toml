@@ -1,0 +1,19 @@
+name = "dropia-ig-bot"
+main = "src/index.ts"
+compatibility_date = "2026-10-01"
+compatibility_flags = ["nodejs_compat"]
+
+[vars]
+IG_USER_ID = "17841454852121147"          # ID de la cuenta profesional @drop_ia (lo da Meta al conectar)
+GRAPH_VERSION = "v26.0"
+CLAUDE_MODEL = "claude-opus-5-5"   # claude-haiku-5-5 es ~40 veces más barato
+
+[triggers]
+crons = ["*/10 * * * *"]   # cola de reels programados
+
+[[kv_namespaces]]
+binding = "STATE"
+id = "f642cae02c0a481d911d1fea53999d2a"
+
+# Secretos (no van aquí): npx wrangler secret put <NOMBRE>
+#   VERIFY_TOKEN, META_APP_SECRET, IG_ACCESS_TOKEN, ANTHROPIC_API_KEY, ADMIN_KEY
